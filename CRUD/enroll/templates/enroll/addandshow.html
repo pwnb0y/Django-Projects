@@ -30,7 +30,10 @@
                     <td>{{st.email}}</td>
                     <td>{{st.password}}</td>
                     <td><a href="#" class="btn btn-warning ">Edit</a></td>
-                    <td><a href="#" class="btn btn-danger ">Delete</a></td>
+                    <td><form action="{% url 'deletedata' st.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn btn-danger ">
+                    </form></td>
                 </tr>
                 {% endfor %} 
             </tbody>
