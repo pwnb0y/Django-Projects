@@ -1,0 +1,27 @@
+{% extends 'garden/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-8 offset-2 my-5">
+        <div class="text-center bg-secondary text-white">
+            <h2>Upload Image</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="Upload" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    {% for x  in img %} 
+    <div class="col-sm-4">
+        <div class="card m-2">
+            <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
+            <div class="card-footer">
+                <small class="text-muted">{{x.date}}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+ </div>
+{% endblock content %}
