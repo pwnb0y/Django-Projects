@@ -29,7 +29,7 @@
                     <td>{{st.name}}</td>
                     <td>{{st.email}}</td>
                     <td>{{st.password}}</td>
-                    <td><a href="#" class="btn btn-warning ">Edit</a></td>
+                    <td><a href="{% url 'updatedata' st.id %}" class="btn btn-warning ">Edit</a></td>
                     <td><form action="{% url 'deletedata' st.id %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <input type="submit" value="Delete" class="btn btn-danger ">
